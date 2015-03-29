@@ -14,9 +14,20 @@
             </a>
           </div>
 
-          <div class="col-md-12 col-xs-12">
+          <div class="col-xs-12">
             <h2>Gimme Five!</h2>
           </div>
+          <!--
+          <div class="col-xs-4 col-xs-offset-4">
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="userName">Gimme Five, </label>
+                <input type="text" class="form-control" id="userName" placeholder="You">
+              </div>
+            </form>
+            
+          </div>
+          -->
 
           <div class="col-md-12 col-xs-12 downlow">
           <!--<a href="{{pathFor 'downlow'}}">-->
@@ -29,12 +40,16 @@
         </div>
         {{else}}
           {{#if failedSlap}}
-            You were left hanging! You can keep your virtual hand out or...
+            <img class="center-block img-rounded" src="{{hangingGifs}}">
+            
+            <p>{{hangingText}}</p>
             <p><a class="btn btn-primary btn-lg continue" href="#" role="button">Try Again</a></p>
+            
           {{else}}
-            <i class="fa fa-circle-o-notch fa-3x fa-spin"></i> {{slapText}}
-            <br>
-            <img class="center-block img-rounded" src="http://wac.450f.edgecastcdn.net/80450F/thefw.com/files/2013/01/ZoEY81.jpg">
+            <p>
+              <i class="fa fa-circle-o-notch fa-3x fa-spin"></i> {{slapText}}
+            </p>
+            <img class="center-block img-rounded" src="{{waitingGifs}}">
             
           {{/if}}
           

@@ -22,6 +22,22 @@ Template.home.helpers({
   items: function() {
     return Items.find();
   },
+
+  hangingGifs: function(){
+    var urlArray = ['http://i.giphy.com/9MGNxEMdWB2tq.gif',
+                    'http://i.giphy.com/xIhGpmuVtuEpi.gif',
+                    'http://i.giphy.com/11GUWw92BSGXaU.gif'
+                    ];
+    var gifURL = urlArray[Math.floor(Math.random() * urlArray.length)];
+    return gifURL;
+  },
+  waitingGifs: function(){
+    var urlArray = ['http://wac.450f.edgecastcdn.net/80450F/thefw.com/files/2013/01/ZoEY81.jpg'
+                    ];
+    var gifURL = urlArray[Math.floor(Math.random() * urlArray.length)];
+    return gifURL;
+  },
+
   totalHigh: function(){
     return Counts.get('totalHigh');
   },
@@ -59,16 +75,26 @@ Template.home.helpers({
     {
       case 0:
       case 1:
-        return ' Finding someone to give five...';
+        return ' Finding a virtual hand to slap...';
         break;
       case 2:
-        return ' Still waiting...';
+        return ' Still looking...';
+        break;
+      case 3:
+        return ' Arm getting tired...';
         break;
       default:
         Session.set('failed', true);
         return 'Boo';
         break;
     }
+  },
+
+  hangingText: function(){
+    var textArray = ['You were left hanging! You can keep your virtual hand out or...'
+                    ];
+    var text = textArray[Math.floor(Math.random() * textArray.length)];
+    return text;
   },
 
   failedSlap: function(){

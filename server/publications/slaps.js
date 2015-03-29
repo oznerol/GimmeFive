@@ -20,9 +20,10 @@ Meteor.publish('slapsWithCounts', function(userId) {
   Counts.publish(this, 'totalSlow', Slaps.find({slapperId: null}), { noReady: true });
   Counts.publish(this, 'myFives', Slaps.find({creatorId: userId, slapperId: {$ne:null}}), { noReady: true });
   Counts.publish(this, 'myFivers', Slaps.find({slapperId: userId}), { noReady: true });
-  return Slaps.find({}, {
+  return Slaps.find({slapperId:null}, 
+        {
             sort: { createdAt: -1 },
-            limit: 20
+            limit: 10
         });
 });
 
