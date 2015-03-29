@@ -23,24 +23,24 @@ Template.home.helpers({
     return Items.find();
   },
   totalHigh: function(){
-    return Slaps.find({slapperId: {$ne:null}, direction:true}).count();
+    return Counts.get('totalHigh');
   },
   totalLow: function()
   {
-    return Slaps.find({slapperId: {$ne:null}, direction:false}).count();
+    return Counts.get('totalLow');
   },
   totalSlow: function()
   {
-    return Slaps.find({slapperId: null}).count();
+    return Counts.get('totalSlow');
   },
   myFives: function()
   {
-    return Slaps.find({creatorId: Meteor.userId(), slapperId: {$ne:null}}).count();
+    return Counts.get('myFives');
     //return Slaps.find({$or: [{creatorId: Meteor.userId()}, {slapperId: Meteor.userId()}]}).count;
   },
   myFivers: function()
   {
-    return Slaps.find({slapperId: Meteor.userId()}).count();
+    return Counts.get('myFivers');
   },
 
   slaps: function() {
