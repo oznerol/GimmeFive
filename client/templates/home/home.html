@@ -4,23 +4,28 @@
     <div class="jumbotron vertical-center">
       <div class="container">
       {{#if mySlap}}
-        <h1>Gimme Five!</h1>
-        
         <div class="row sections">
-          <div class="col-md-6 col-xs-6 downlow">
-          <!--<a href="{{pathFor 'downlow'}}">-->
-            <a href="#">
-            <h1><i class="fa fa-hand-o-down"></i></h1>
-             <p>Down Low</p>
-             </a>
-          </div>
-          <div class="col-md-6 col-xs-6 uptop">
+
+          <div class="col-md-12 col-xs-12 uptop">
             <!--<a href="{{pathFor 'uptop'}}">-->
             <a href="#">
             <h1><i class="fa fa-hand-o-up"></i></h1>
             <p>Up Top</p>
             </a>
           </div>
+
+          <div class="col-md-12 col-xs-12">
+            <h2>Gimme Five!</h2>
+          </div>
+
+          <div class="col-md-12 col-xs-12 downlow">
+          <!--<a href="{{pathFor 'downlow'}}">-->
+            <a href="#">
+            <h1><i class="fa fa-hand-o-down"></i></h1>
+             <p>Down Low</p>
+             </a>
+          </div>
+
         </div>
         {{else}}
           {{#if failedSlap}}
@@ -29,7 +34,7 @@
           {{else}}
             <i class="fa fa-circle-o-notch fa-3x fa-spin"></i> {{slapText}}
             <br>
-            <img class="center-block" src="http://wac.450f.edgecastcdn.net/80450F/thefw.com/files/2013/01/ZoEY81.jpg">
+            <img class="center-block img-rounded" src="http://wac.450f.edgecastcdn.net/80450F/thefw.com/files/2013/01/ZoEY81.jpg">
             
           {{/if}}
           
@@ -60,6 +65,8 @@
     </div>
     <br>
     <br>
+
+    
     {{/if}}
     <!--
     <div class="clear">
