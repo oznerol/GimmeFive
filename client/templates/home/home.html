@@ -1,0 +1,83 @@
+<template name="home">
+  <div class="template-home">
+  <section id="top" name="top"></section>
+    <div class="jumbotron vertical-center">
+      <div class="container">
+      {{#if mySlap}}
+        <h1>Gimme Five!</h1>
+        
+        <div class="row sections">
+          <div class="col-md-6 col-xs-6 downlow">
+          <!--<a href="{{pathFor 'downlow'}}">-->
+            <a href="#">
+            <h1><i class="fa fa-hand-o-down"></i></h1>
+             <p>Down Low</p>
+             </a>
+          </div>
+          <div class="col-md-6 col-xs-6 uptop">
+            <!--<a href="{{pathFor 'uptop'}}">-->
+            <a href="#">
+            <h1><i class="fa fa-hand-o-up"></i></h1>
+            <p>Up Top</p>
+            </a>
+          </div>
+        </div>
+        {{else}}
+          {{#if failedSlap}}
+            You were left hanging! You can keep your virtual hand out or...
+            <p><a class="btn btn-primary btn-lg continue" href="#" role="button">Try Again</a></p>
+          {{else}}
+            <i class="fa fa-circle-o-notch fa-3x fa-spin"></i> {{slapText}}
+            <br>
+            <img class="center-block" src="http://wac.450f.edgecastcdn.net/80450F/thefw.com/files/2013/01/ZoEY81.jpg">
+            
+          {{/if}}
+          
+        {{/if}}
+        <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
+      </div>
+    </div>
+
+    {{#if mySlap}}
+    <div class="row sections">
+      <div class="col-md-4 col-xs-4">
+        <p class="text-center">Global high-fives given: {{totalHigh}}</p>
+      </div>
+      <div class="col-md-4 col-xs-4">
+        <p class="text-center">Global low-fives given: {{totalLow}}</p>
+      </div>
+       <div class="col-md-4 col-xs-4">
+        <p class="text-center">People left hanging: {{totalSlow}}</p>
+      </div>
+    </div>
+    <div class="row sections">
+      <div class="col-md-6 col-xs-6">
+        <p class="text-center">My fives given: {{myFives}}</p>
+      </div>
+      <div class="col-md-6 col-xs-6">
+        <p class="text-center">My fives received: {{myFivers}}</p>
+      </div>
+    </div>
+    <br>
+    <br>
+    {{/if}}
+    <!--
+    <div class="clear">
+        <p>Clear</p>
+    </div>
+    <div class="populate">
+        <p>Add open</p>
+    </div>
+    <div class="completed">
+        <p>Add Completed</p>
+    </div>
+    <ul class="list-group">
+      {{#each slaps}}
+        <div class="closeout">
+        <li class="list-group-item">creator: {{creatorId}} direction: {{#if direction}}uptop{{else}}downlow{{/if}} <span class="label label-default">{{ slapperId }}</span></li>
+        </div>
+      {{/each}}
+    </ul>-->
+  </div>
+ </template>
+
