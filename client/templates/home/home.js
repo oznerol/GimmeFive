@@ -116,7 +116,7 @@ Template.home.helpers({
       var slap = Slaps.findOne({_id:id});
       //console.log(slap);
 
-      if(slap.slapperId)
+      if(slap && slap.slapperId)
       {
           Session.set('slapDir', null);
           Session.set('slapId', null);
@@ -149,7 +149,10 @@ Template.home.events({
     }, 8000 );
 
 
-    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:false, slapperId:null});
+    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:false, slapperId:null},
+      {
+            sort: { createdAt: -1 },
+        });
     if(slap)
     {
       Session.set('slapId', slap._id);
@@ -196,7 +199,10 @@ Template.home.events({
         Session.set('myInverval', index+1);
     }, 8000 );
 
-    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:true, slapperId:null});
+    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:true, slapperId:null},
+      {
+            sort: { createdAt: -1 },
+        });
     if(slap)
     {
       Session.set('slapId', slap._id);

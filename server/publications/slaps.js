@@ -20,10 +20,18 @@ Meteor.publish('slapsWithCounts', function(userId) {
   Counts.publish(this, 'totalSlow', Slaps.find({slapperId: null}), { noReady: true });
   Counts.publish(this, 'myFivers', Slaps.find({creatorId: userId, slapperId: {$ne:null}}), { noReady: true });
   Counts.publish(this, 'myFives', Slaps.find({slapperId: userId}), { noReady: true });
-  return Slaps.find({}, 
+  return Slaps.find({creatorId: {$ne: userId}, slapperId:null}, 
+        {
+            sort: { createdAt: 1 },
+            limit: 10
+        });
+});
+
+Meteor.publish('mySlaps', function(userId) {
+  return Slaps.find({creatorId: userId}, 
         {
             sort: { createdAt: -1 },
-            limit: 20
+            limit: 3
         });
 });
 
@@ -39,8 +47,10 @@ Meteor.publishComposite("slapWithId", function(slapId) {
 Meteor.publishComposite("slapsForUser", function(userId) {
   return {
     find: function() {
-      return Slaps.find({$or: [{creatorId: userId}, {slapperId: userId}]}, { sort: { createdAt: 1 }
-                        });
+      return Slaps.find({$or: [{creatorId: userId}, {slapperId: userId}]}, 
+        { sort: { createdAt: -1 },
+          limt: 3 
+        });
     }
   }
 });
