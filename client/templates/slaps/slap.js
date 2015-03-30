@@ -34,7 +34,26 @@ Template.slap.helpers({
                     'http://i.giphy.com/4SS0kfzRqfBf2.gif',
                     'http://i.giphy.com/DohrJX1h2W5RC.gif',
                     'http://i.giphy.com/oyf3O9G6wAn28.gif',
-                    'http://i.giphy.com/MoQiYAaIqADss.gif'
+                    'http://i.giphy.com/MoQiYAaIqADss.gif',
+                    'http://i.giphy.com/m6BXPlP86xeSs.gif',
+                    'http://i.giphy.com/Ctq1dz7dpHCY8.gif',
+                    'http://i.giphy.com/2FazevvcDdyrf1E7C.gif',
+                    'http://i.giphy.com/dLuI7v4QXx5SM.gif',
+                    'http://i.giphy.com/uKRJBCO4ToGaY.gif',
+                    'http://i.giphy.com/C4lSxWjqSJLfG.gif',
+                    'http://i.giphy.com/vGsPkpzkQYrTy.gif',
+                    'http://i.giphy.com/M9TuBZs3LIQz6.gif',
+                    'http://i.giphy.com/LdnaND03GRE9q.gif',
+                    'http://i.giphy.com/mHEes6Quf8XK0.gif',
+                    'http://i.giphy.com/ZgDGEMihlZXCo.gif',
+                    'http://i.giphy.com/BP9eSu9cnnGN2.gif',
+                    'http://i.giphy.com/gdNlcJ1tAtiSI.gif',
+                    'http://i.giphy.com/WPaCAamuP5dVS.gif',
+                    'http://i.giphy.com/zl170rmVMCpEY.gif',
+                    'http://i.giphy.com/It1gmYcfFzoNG.gif',
+                    'http://i.giphy.com/pjAEUYukyEyDC.gif',
+                    'http://i.giphy.com/6Cb3GJ8fxPt60.gif',
+                    'http://i.giphy.com/10LNj580n9OmiI.gif'
                     ];
     var gifURL = urlArray[Math.floor(Math.random() * urlArray.length)];
     return gifURL;
