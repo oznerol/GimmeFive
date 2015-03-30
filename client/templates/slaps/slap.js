@@ -4,6 +4,22 @@ Template.slap.rendered = function() {
 
 Template.slap.helpers({
 
+  slapId: function() {
+    var controller = Iron.controller();
+
+    // reactively return the value of postId
+    return controller.state.get('slapId');
+  },
+
+  oneSlap: function() {
+    //console.log('calling find2');
+    var result = Slaps.findOne();
+    if(!result)
+      result = false;
+
+    return result;
+  },
+
   slaps: function() {
     return Slaps.find();
   },

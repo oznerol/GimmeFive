@@ -7,7 +7,8 @@ Meteor.methods({
     return 'all clear!';
   },
   'Slaps.update': function (slapId) {
-    Slaps.update({_id: slapId}, {$set: {slapperId:Meteor.userId()}});
+    Slaps.update({_id: slapId}, {$set: {slapperId:Meteor.userId(), 
+                                        updatedAt:moment().toDate()}});
     return 'updated!';
   },
 });

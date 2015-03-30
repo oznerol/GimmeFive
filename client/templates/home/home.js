@@ -49,14 +49,14 @@ Template.home.helpers({
   {
     return Counts.get('totalSlow');
   },
-  myFives: function()
-  {
-    return Counts.get('myFives');
-    //return Slaps.find({$or: [{creatorId: Meteor.userId()}, {slapperId: Meteor.userId()}]}).count;
-  },
   myFivers: function()
   {
     return Counts.get('myFivers');
+    //return Slaps.find({$or: [{creatorId: Meteor.userId()}, {slapperId: Meteor.userId()}]}).count;
+  },
+  myFives: function()
+  {
+    return Counts.get('myFives');
   },
 
   slaps: function() {
@@ -120,7 +120,7 @@ Template.home.helpers({
       {
           Session.set('slapDir', null);
           Session.set('slapId', null);
-          Router.go('slap');
+          Router.go('slap', {_id: slap._id});
       }else{
           //console.log("waiting on " + slap._id);
           return false;

@@ -2,11 +2,22 @@ Router.route('/', {
   name: 'home'
 });
 
-Router.route('/slap',
+Router.route('slap',
 {
+  path: '/slap/:_id',
 	name: 'slap',
+	controller: 'SlapController',
 	loadingTemplate: 'findingSlap'
 });
+
+Router.route('/about', {
+  name: 'about'
+});
+
+Router.route('/stats', {
+  name: 'stats'
+});
+
 /*
 Router.route('/dashboard', {
   name: 'dashboard'

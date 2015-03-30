@@ -14,6 +14,14 @@
       <br>
       <p class="text-center"><a class="btn btn-primary btn-lg continue" href="#" role="button">Give More Fives</a></p>
       
+      {{#if oneSlap}}
+        {{#with oneSlap}}
+            {{slapperId}} gave five to {{creatorId}}
+        {{/with}}
+      {{else}}
+        Invalid five
+      {{/if}}
+
     </div>
   </div>
 </template>

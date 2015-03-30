@@ -1,17 +1,19 @@
 SlapController = AppController.extend({
   waitOn: function() {
-    
-    return this.subscribe('openSlaps');
+    this.state.set('slapId', this.params._id);
+    return this.subscribe('slapWithId', this.params._id);
   },
-  data: {
-    slaps: Slaps.find({})
+  data: function () {
+    //console.log('calling find3');
+    return [Slaps.findOne({_id: this.params._id})
+    ];
   },
   onBeforeAction: function () {
     //console.log(this.params.query.slap);
     this.next();
   },
   onAfterAction: function () {
-    Meta.setTitle('GiveMeFive!');
+    //Meta.setTitle('Gimme Five!');
   }
 });
 
