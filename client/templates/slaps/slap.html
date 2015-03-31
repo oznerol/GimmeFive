@@ -10,10 +10,14 @@
         <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
       </div>
       
-      <img class="center-block img-rounded" src="{{fiveGifs}}">
+      <div class="row sections">
+          <div class="col-xs-12">
+            <img class="center-block img-rounded" src="{{fiveGifs}}">
+          </div>
+      </div>
       <br>
       <p class="text-center"><a class="btn btn-primary btn-lg continue" href="#" role="button">Give More Fives</a></p>
-      
+            
       {{#if oneSlap}}
         {{#with oneSlap}}
             {{slapperId}} gave five to {{creatorId}}

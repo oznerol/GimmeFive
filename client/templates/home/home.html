@@ -39,20 +39,24 @@
 
         </div>
         {{else}}
+        
           {{#if failedSlap}}
-            <img class="center-block img-rounded" src="{{hangingGifs}}">
-            
-            <p>{{hangingText}}</p>
-            <p><a class="btn btn-primary btn-lg continue" href="#" role="button">Try Again</a></p>
+          <p>{{hangingText}}</p>
+          <p><a class="btn btn-primary btn-lg continue" href="#" role="button">Try Again</a></p>
+          <div class="row sections">
+            <div class="col-xs-12">
+              <img class="center-block img-rounded" src="{{hangingGifs}}">
+            </div>
+          </div>
             
           {{else}}
-            <p>
-              <i class="fa fa-circle-o-notch fa-3x fa-spin"></i> {{slapText}}
-            </p>
-            <img class="center-block img-rounded" src="{{waitingGifs}}">
-            
+            <p><i class="fa fa-circle-o-notch fa-3x fa-spin"></i> {{slapText}}</p>
+            <div class="row sections">
+              <div class="col-xs-12">
+                <img class="center-block img-rounded" src="{{waitingGifs}}">
+              </div>
+            </div>
           {{/if}}
-          
         {{/if}}
         <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>-->
       </div>
