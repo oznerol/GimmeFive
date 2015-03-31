@@ -20,6 +20,38 @@ Template.slap.helpers({
     return result;
   },
 
+  slapReceiver: function() {
+      var person = Meteor.users.findOne(this.creatorId);
+      var name = 'unknown';
+
+      if(person)
+      {
+          if(person.profile.name)
+            name = person.profile.name;
+          else if(person._id)
+          {
+            name = person._id;
+            name = name.substring(0,5) + '...';
+          }
+      }
+
+      return name;
+  },
+  slapGiver: function() {
+      var person = Meteor.users.findOne(this.slapperId);
+      var name = 'unknown';
+
+      if(person)
+      {
+          if(person.profile.name)
+            name = person.profile.name;
+          else if(person._id)
+            name = person._id;
+      }
+
+      return name;
+  },
+
   slaps: function() {
     return Slaps.find();
   },

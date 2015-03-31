@@ -11,4 +11,11 @@ Meteor.methods({
                                         updatedAt:moment().toDate()}});
     return 'updated!';
   },
+  'username.set': function (userId, name) {
+    check(name, String);
+    check(userId, String);
+
+    Meteor.users.update({_id: userId}, {$set: {"profile.name":name}});
+    return 'username changed!';
+  }
 });

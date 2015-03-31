@@ -5,6 +5,6 @@ if (Meteor.App) {
 }
 
 Meteor.App = {
-  NAME: 'Streaker',
-  DESCRIPTION: 'Do. Track. Repeat.'
+  NAME: 'GimmeFive!',
+  DESCRIPTION: 'GimmeFive'
 };

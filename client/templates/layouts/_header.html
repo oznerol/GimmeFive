@@ -1,6 +1,6 @@
 <template name="_header">
 
-  <nav class="navbar navbar-default navbar-fixed-top shadow2" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top shadow1" role="navigation">
     <div class="container">
 
       <div class="navbar-header">
@@ -14,7 +14,24 @@
       </div>
 
       <div class="collapse navbar-collapse" id="main-nav">
+      
+        <form class="navbar-form navbar-left" role="username">
+            <div class="input-group">
+              {{#if currentUser.profile.name }}
+                  <input type="text" class="form-control" placeholder="{{currentUser.profile.name}}" id="myName">
+                {{else}}
+                  <input type="text" class="form-control" placeholder="Name" id="myName">
+                {{/if}}
+               
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Set</button>
+               </span>
+            </div>
+        </form>
+
+
         <ul class="nav navbar-nav navbar-right">
+          <li class="{{ isActiveRoute regex='home' }}"><a href="{{ pathFor 'home' }}"><i class="fa fa-hand-o-up"></i> Give Five!</a></li>
           <li class="{{ isActiveRoute regex='about' }}"><a href="{{ pathFor 'about' }}"><i class="fa fa-info-circle"></i> About</a></li>
           <li class="{{ isActiveRoute regex='stats' }}"><a href="{{ pathFor 'stats' }}"><i class="fa fa-signal"></i> Stats</a></li>
         </ul>

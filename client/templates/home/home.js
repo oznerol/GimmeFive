@@ -23,6 +23,7 @@ Template.home.helpers({
     return Items.find();
   },
 
+
   hangingGifs: function(){
     var urlArray = ['http://i.giphy.com/9MGNxEMdWB2tq.gif',
                     'http://i.giphy.com/xIhGpmuVtuEpi.gif',
@@ -127,6 +128,8 @@ Template.home.helpers({
 
     return false;
   },
+
+  
 
   mySlap: function(){
     var dir = Session.get('slapDir');

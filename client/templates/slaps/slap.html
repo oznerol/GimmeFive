@@ -2,7 +2,14 @@
   <div class="template-slap">
   <div class="jumbotron vertical-center">
       <div class="container">
-        <h1 class="text-center">You Gave Five!</h1>
+        {{#if oneSlap}}
+          {{#with oneSlap}}
+              <h2 class="text-center">{{slapGiver}} Gave Five To {{slapReceiver}}</h2>
+          {{/with}}
+        {{else}}
+          <h2 class="text-center">Invalid Five! OMGWTFLOL!</h2>
+        {{/if}}
+        
         
         <!--<ul class="list-group">
         <li class="list-group-item">creator: {{slap.creatorId}} direction: {{#if slap.direction}}uptop{{else}}downlow{{/if}} <span class="label label-default">{{ slap.slapperId }}</span></li>
@@ -17,15 +24,6 @@
       </div>
       <br>
       <p class="text-center"><a class="btn btn-primary btn-lg continue" href="#" role="button">Give More Fives</a></p>
-            
-      {{#if oneSlap}}
-        {{#with oneSlap}}
-            {{slapperId}} gave five to {{creatorId}}
-        {{/with}}
-      {{else}}
-        Invalid five
-      {{/if}}
-
     </div>
   </div>
 </template>
