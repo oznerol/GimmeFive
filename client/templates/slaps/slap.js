@@ -46,7 +46,10 @@ Template.slap.helpers({
           if(person.profile.name)
             name = person.profile.name;
           else if(person._id)
+          {
             name = person._id;
+            name = name.substring(0,5) + '...';
+          }
       }
 
       return name;

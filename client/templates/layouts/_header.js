@@ -5,18 +5,26 @@ Template._header.helpers({
 });
 
 Template._header.events({
-  "submit form.navbar-form": function(e, tpl){
-  	e.preventDefault();
+  "click .navbar-nav li a": function(e, tpl){
+    //e.preventDefault();
+      tpl.$(".navbar-collapse").collapse('hide');
+    },
+
+  "click .twitter": function(e, tpl){
+    e.preventDefault();
     Meteor.loginWithTwitter( function(err){
+
       if (err){
         console.log(err)
       }else{
         console.log("yeah");
      }
     });
+  },
 
-
-    /*
+  "submit form.navbar-form": function(e, tpl){
+  	e.preventDefault();
+    
   	var myName = tpl.$("input[id='myName']").val();
 
   	if(myName)
@@ -30,6 +38,6 @@ Template._header.events({
           console.log(response);
         }
       });
-  	}*/
+  	}
   }
 });

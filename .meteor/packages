@@ -24,3 +24,7 @@ aldeed:autoform
 artwells:accounts-guest
 tmeasday:publish-counts
 accounts-twitter
+service-configuration
+pauldowman:dotenv
+accounts-ui
+accounts-password

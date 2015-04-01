@@ -6,3 +6,4 @@
 dump
 settings.json
 settings.example.json
+.env

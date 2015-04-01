@@ -2,6 +2,8 @@ accounts-base@1.2.0
 accounts-oauth@1.1.5
 accounts-password@1.1.1
 accounts-twitter@1.0.4
+accounts-ui@1.1.5
+accounts-ui-unstyled@1.1.7
 alanning:roles@1.2.13
 aldeed:autoform@5.1.2
 aldeed:collection2@2.3.3
@@ -61,6 +63,7 @@ oauth@1.1.4
 oauth1@1.1.4
 observe-sequence@1.0.6
 ordered-dict@1.0.3
+pauldowman:dotenv@1.0.1
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
