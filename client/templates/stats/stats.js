@@ -19,6 +19,16 @@ Template.stats.rendered = function()
           Session.set('leaderGive', response);
         }
       });
+
+  Meteor.call('stats.slapHangers', 10, function(error, response) {
+        if (error) {
+          console.log(error.reason);
+        }
+        else
+        {
+          Session.set('leaderHang', response);
+        }
+      });
    
 };
 
@@ -33,6 +43,10 @@ Template.stats.helpers({
   totalSlow: function()
   {
     return Counts.get('totalSlow');
+  },
+  totalWaiting: function()
+  {
+    return Counts.get('totalWaiting');
   },
   myFivers: function()
   {
@@ -50,6 +64,10 @@ Template.stats.helpers({
   leaderGive: function()
   {
     return Session.get('leaderGive');
+  },
+  leaderHang: function()
+  {
+    return Session.get('leaderHang');
   },
   myId: function()
   {

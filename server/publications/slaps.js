@@ -1,7 +1,7 @@
 Meteor.publishComposite("slaps", function(userId) {
   return {
     find: function() {
-      return Slaps.find({creatorId: {$ne: userId}, slapperId:null}, 
+      return Slaps.find({creatorId: {$ne: userId}, slapperId:null, hanging:null}, 
         {
             sort: { createdAt: 1 },
             limit: 10
@@ -52,7 +52,8 @@ Meteor.publish('slapsWithCounts', function(userId) {
 Meteor.publish('slapCounts', function(userId) {
   Counts.publish(this, 'totalHigh', Slaps.find({slapperId: {$ne:null}, direction:true}));
   Counts.publish(this, 'totalLow', Slaps.find({slapperId: {$ne:null}, direction:false}));
-  Counts.publish(this, 'totalSlow', Slaps.find({slapperId: null}));
+  Counts.publish(this, 'totalSlow', Slaps.find({slapperId: null, hanging:true}));
+  Counts.publish(this, 'totalWaiting', Slaps.find({slapperId: null, hanging:null}));
   Counts.publish(this, 'myFivers', Slaps.find({creatorId: userId, slapperId: {$ne:null}}));
   Counts.publish(this, 'myFives', Slaps.find({slapperId: userId}));
 });

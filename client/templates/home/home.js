@@ -1,5 +1,17 @@
 var myInterval;
 
+function leaveHanging(slapId) {
+  Meteor.call('Slaps.leave', slapId, function(error, response) {
+      if (error) {
+        console.log(error.reason);
+      }
+      else
+      {
+        console.log(response);
+      }
+    });
+}
+
 Template.home.rendered = function() {
     Session.set('slapDir', null);
     Session.set('slapId', null);
@@ -10,8 +22,13 @@ Template.home.rendered = function() {
 
 Template.home.destroyed = function() {
 
-  // TODO - check to see if was waiting for a Five, and if so, close it out to
+  // check to see if was waiting for a Five, and if so, close it out to
   // permanently leave hanging
+    var id = Session.get('slapId');
+    if(id)
+    {
+      leaveHanging(id);
+    }
 
     Meteor.clearInterval(myInterval);
     Session.set('slapDir', null);
@@ -22,12 +39,8 @@ Template.home.destroyed = function() {
   };
 
 
+
 Template.home.helpers({
-  items: function() {
-    return Items.find();
-  },
-
-
   hangingGifs: function(){
     var urlArray = ['http://i.giphy.com/9MGNxEMdWB2tq.gif',
                     'http://i.giphy.com/xIhGpmuVtuEpi.gif',
@@ -63,27 +76,6 @@ Template.home.helpers({
     return gifURL;
   },
 
-  totalHigh: function(){
-    return Counts.get('totalHigh');
-  },
-  totalLow: function()
-  {
-    return Counts.get('totalLow');
-  },
-  totalSlow: function()
-  {
-    return Counts.get('totalSlow');
-  },
-  myFivers: function()
-  {
-    return Counts.get('myFivers');
-    //return Slaps.find({$or: [{creatorId: Meteor.userId()}, {slapperId: Meteor.userId()}]}).count;
-  },
-  myFives: function()
-  {
-    return Counts.get('myFives');
-  },
-
   slaps: function() {
     return Slaps.find({slapperId: null}, { sort: { createdAt: 1 }
                         });
@@ -116,7 +108,7 @@ Template.home.helpers({
   },
 
   hangingText: function(){
-    var textArray = ['You were left hanging! You can keep your virtual hand out or...'
+    var textArray = ['You were left hanging! Keep this open to keep your virtual hand out or get left hanging and...'
                     ];
     var text = textArray[Math.floor(Math.random() * textArray.length)];
     return text;
@@ -176,7 +168,7 @@ Template.home.events({
     }, 8000 );
 
 
-    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:false, slapperId:null},
+    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:false, slapperId:null, hanging:null},
       {
             sort: { createdAt: -1 },
         });
@@ -226,7 +218,7 @@ Template.home.events({
         Session.set('myInverval', index+1);
     }, 8000 );
 
-    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:true, slapperId:null},
+    var slap = Slaps.findOne({creatorId: {$ne: Meteor.userId()}, direction:true, slapperId:null, hanging:null},
       {
             sort: { createdAt: -1 },
         });
@@ -267,6 +259,13 @@ Template.home.events({
 
   "click .continue": function(e, tpl){
     e.preventDefault();
+
+    var id = Session.get('slapId');
+    if(id)
+    {
+      leaveHanging(id);
+    }
+
     Session.set('slapDir', null);
     Session.set('slapId', null);
     Session.set('myInverval', 0);

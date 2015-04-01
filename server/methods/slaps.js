@@ -11,6 +11,13 @@ Meteor.methods({
                                         updatedAt:moment().toDate()}});
     return 'updated!';
   },
+  'Slaps.leave': function (slapId) {
+    Slaps.update({_id: slapId}, {$set: {slapperId:null, 
+                                        updatedAt:moment().toDate(),
+                                        hanging: true
+                                      }});
+    return 'updated!';
+  },
   'username.set': function (userId, name) {
     check(name, String);
     check(userId, String);
@@ -58,6 +65,30 @@ Meteor.methods({
       // Group by the answer values
       { $group: {
           _id: "$slapperId",
+          slaps: { $sum: 1 }
+      }},
+      {
+        $sort: {slaps: -1}
+      },
+      {
+        $limit: limit
+      }]
+    );
+  },
+
+  'stats.slapHangers' : function(limit)
+  {
+     return Slaps.aggregate(
+      // Limit matching documents (can take advantage of index)
+      [{ 
+        $match: 
+          {
+            "hanging": true
+          }
+      },
+      // Group by the answer values
+      { $group: {
+          _id: "$creatorId",
           slaps: { $sum: 1 }
       }},
       {

@@ -8,14 +8,17 @@
           <div class="col-md-12 col-xs-12">
             <h2 class="text-center">Current Five Status</h2>
           </div>
-          <div class="col-md-4 col-xs-12">
+          <div class="col-md-6 col-xs-12">
             <p class="text-center">Global high-fives given: {{totalHigh}}</p>
           </div>
-          <div class="col-md-4 col-xs-12">
+          <div class="col-md-6 col-xs-12">
             <p class="text-center">Global low-fives given: {{totalLow}}</p>
           </div>
-           <div class="col-md-4 col-xs-12">
+           <div class="col-md-6 col-xs-12">
             <p class="text-center">People left hanging: {{totalSlow}}</p>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <p class="text-center">People waiting for fives: {{totalWaiting}}</p>
           </div>
           
           <div class="col-md-12 col-xs-12">
@@ -49,6 +52,18 @@
             <p class="text-center">Most Fives Given:</p>
           </div>
           {{#each leaderGive}}
+            <div class="col-md-6 col-xs-6">
+              <p class="text-center"> {{_id}}</p>
+            </div>
+            <div class="col-md-6 col-xs-6">
+              <p class="text-center"> {{slaps}}</p>
+            </div>
+          {{/each}}
+
+          <div class="col-md-12 col-xs-12">
+            <p class="text-center">Most Fives Left Hanging:</p>
+          </div>
+          {{#each leaderHang}}
             <div class="col-md-6 col-xs-6">
               <p class="text-center"> {{_id}}</p>
             </div>
