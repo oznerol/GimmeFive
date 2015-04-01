@@ -72,6 +72,24 @@ Template.stats.helpers({
   myId: function()
   {
     return Meteor.userId();
+  },
+  getUserName: function()
+  {
+    var userName = 'Anonymous';
+    var user = Meteor.users.findOne({_id: this._id},
+        { 
+          fields: { profile: 1 } 
+        });
+
+    if(user)
+    {
+      if(user.profile.name)
+        userName = user.profile.name;
+      else
+        userName += ' (' + user._id.substring(0,3) + '...)';
+    }
+    
+    return userName;
   }
 });
 

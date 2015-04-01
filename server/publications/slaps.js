@@ -56,6 +56,11 @@ Meteor.publish('slapCounts', function(userId) {
   Counts.publish(this, 'totalWaiting', Slaps.find({slapperId: null, hanging:null}));
   Counts.publish(this, 'myFivers', Slaps.find({creatorId: userId, slapperId: {$ne:null}}));
   Counts.publish(this, 'myFives', Slaps.find({slapperId: userId}));
+
+  
+  return Meteor.users.find(
+                      {  },
+                      { fields: { profile: 1 } });
 });
 
 
