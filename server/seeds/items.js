@@ -19,5 +19,5 @@ Meteor.startup(function() {
 	//var before = new Date();
 	//before.setHours(before.getHours() - 2);
 	//Accounts.removeOldGuests(before);
-	Accounts.removeOldGuests();
+	//Accounts.removeOldGuests();
 });

@@ -32,6 +32,7 @@ Template.slap.helpers({
           {
             name = person._id;
             name = name.substring(0,5) + '...';
+            name = 'Anonymous';
           }
       }
 
@@ -49,6 +50,7 @@ Template.slap.helpers({
           {
             name = person._id;
             name = name.substring(0,5) + '...';
+            name = 'Anonymous';
           }
       }
 

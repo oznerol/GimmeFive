@@ -25,6 +25,15 @@
 {
     .jumbotron
     {
+        .flipped{
+            -moz-transform: scaleY(-1);
+            -o-transform: scaleY(-1);
+            -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+            filter: FlipV;
+            -ms-filter: "FlipV";
+        }
+
         .vertical-center {
           min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
           min-height: 100vh; /* These two lines are counted as one :-)       */

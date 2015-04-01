@@ -9,6 +9,10 @@ Template.home.rendered = function() {
 };
 
 Template.home.destroyed = function() {
+
+  // TODO - check to see if was waiting for a Five, and if so, close it out to
+  // permanently leave hanging
+
     Meteor.clearInterval(myInterval);
     Session.set('slapDir', null);
     Session.set('slapId', null);

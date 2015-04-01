@@ -1,4 +1,24 @@
-Template.stats.rendered = function() {
+Template.stats.rendered = function() 
+{
+  Meteor.call('stats.slapCreators', 10, function(error, response) {
+        if (error) {
+          console.log(error.reason);
+        }
+        else
+        {
+          Session.set('leaderReceive', response);
+        }
+      });
+
+  Meteor.call('stats.slapGivers', 10, function(error, response) {
+        if (error) {
+          console.log(error.reason);
+        }
+        else
+        {
+          Session.set('leaderGive', response);
+        }
+      });
    
 };
 
@@ -23,4 +43,20 @@ Template.stats.helpers({
   {
     return Counts.get('myFives');
   },
+  leaderReceive: function()
+  {
+    return Session.get('leaderReceive');
+  },
+  leaderGive: function()
+  {
+    return Session.get('leaderGive');
+  },
+  myId: function()
+  {
+    return Meteor.userId();
+  }
+});
+
+Template.stats.events({
+
 });
