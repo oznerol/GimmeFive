@@ -13,9 +13,7 @@ Meteor.startup(function() {
 	  loginStyle: "popup",
 	  secret: process.env.TWITTER_SECRET
 	});
-
-
-
+	
 	//var before = new Date();
 	//before.setHours(before.getHours() - 2);
 	//Accounts.removeOldGuests(before);

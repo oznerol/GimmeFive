@@ -3,7 +3,9 @@ StatsController = AppController.extend({
     return this.subscribe('slapCounts', Meteor.userId());
   },
   data: {
-    //slaps: Slaps.find({})
+     users: Meteor.users.find(
+                      {  },
+                      { fields: { profile: 1 } })
   },
   onBeforeAction: function () {
     //console.log(this.params.query.slap);

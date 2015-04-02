@@ -41,6 +41,20 @@ Template.home.destroyed = function() {
 
 
 Template.home.helpers({
+  shareData: function() {
+    var resp = {  title: "Don't leave me hanging! Someone gimme five!", 
+                  url: 'http://www.gimme5.io',
+                  hashtags: 'gimmefive,highfive,gimme5',
+                  excerpt:"Share this",
+                  description:"a Description",
+                  summary:"a Summary",
+                  author:"Gimme5.io",
+                  givefivetext: "Don't leave me hanging! Someone gimme five!",
+                  sharefivetext: "There's a worldwide shortage of fives. Give some here:"
+                };
+    return resp;
+  },
+
   hangingGifs: function(){
     var urlArray = ['http://i.giphy.com/9MGNxEMdWB2tq.gif',
                     'http://i.giphy.com/xIhGpmuVtuEpi.gif',

@@ -32,7 +32,7 @@ Meteor.publishComposite("currentUser", function(userId) {
   }
 });
 
-Meteor.publish('slapsWithCounts', function(userId) {
+Meteor.publishComposite('slapsWithCounts', function(userId) {
   Counts.publish(this, 'totalHigh', Slaps.find({slapperId: {$ne:null}, direction:true}), { noReady: true });
   Counts.publish(this, 'totalLow', Slaps.find({slapperId: {$ne:null}, direction:false}), { noReady: true });
   Counts.publish(this, 'totalSlow', Slaps.find({slapperId: null}), { noReady: true });
@@ -49,22 +49,26 @@ Meteor.publish('slapsWithCounts', function(userId) {
   }
 });
 
-Meteor.publish('slapCounts', function(userId) {
-  Counts.publish(this, 'totalHigh', Slaps.find({slapperId: {$ne:null}, direction:true}));
-  Counts.publish(this, 'totalLow', Slaps.find({slapperId: {$ne:null}, direction:false}));
-  Counts.publish(this, 'totalSlow', Slaps.find({slapperId: null, hanging:true}));
-  Counts.publish(this, 'totalWaiting', Slaps.find({slapperId: null, hanging:null}));
-  Counts.publish(this, 'myFivers', Slaps.find({creatorId: userId, slapperId: {$ne:null}}));
-  Counts.publish(this, 'myFives', Slaps.find({slapperId: userId}));
+Meteor.publishComposite('slapCounts', function(userId) {
+  Counts.publish(this, 'totalHigh', Slaps.find({slapperId: {$ne:null}, direction:true}), { noReady: false });
+  Counts.publish(this, 'totalLow', Slaps.find({slapperId: {$ne:null}, direction:false}), { noReady: false });
+  Counts.publish(this, 'totalSlow', Slaps.find({slapperId: null, hanging:true}), { noReady: false });
+  Counts.publish(this, 'totalWaiting', Slaps.find({slapperId: null, hanging:null}), { noReady: false });
+  Counts.publish(this, 'myFivers', Slaps.find({creatorId: userId, slapperId: {$ne:null}}), { noReady: false });
+  Counts.publish(this, 'myFives', Slaps.find({slapperId: userId}), { noReady: false });
 
   
-  return Meteor.users.find(
+  return {
+    find: function(){
+      return Meteor.users.find(
                       {  },
                       { fields: { profile: 1 } });
+    }
+  }
 });
 
 
-Meteor.publish('mySlaps', function(userId) {
+Meteor.publishComposite('mySlaps', function(userId) {
   return {
     find: function(){
       return Slaps.find({creatorId: userId}, 

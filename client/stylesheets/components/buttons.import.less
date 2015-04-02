@@ -8,3 +8,54 @@
 #login-buttons-image-twitter {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVQ4jaVTz0sbQRh92V10l006GaKJCtEtmqMYU0Qpwqb4B6zgXdT0WEr7B0ih4MGLP05CUWMvHkQwglhvGhsvKmJOBhTUQjWU2slilKarrAfdZROTQ8m7fPMx33szb75vXKZpohpwVbEBCNaCMUYopXppAWOMxDNsOPf3H1WIeDoSURYYYwQAKKW6y7KgLe2vam11KyMRZcEpEP6SOkwbUgc4ATAKUF8YW2fXhZejvaHPsc7gvH2DnCfQGEtdxrd/5NRJteUDpVTf+5kLp2WlA6JsCyZv9ChplPKdTfJZkYWhEF3bvnV3fb36NZSY3dP6Q/5V4hFvIAaKPckE8W5pLBIQdwHAthBdPtpJuhpeAwDu74DrP4/R1/Ts4cwBWg/gN+DowoSqTBPezAMAeAHw+suSw4Q7schFApF6af19a+2yLVIB7xR+0Zk75yCveu82FMnMViKHCXcSa3PPVBJAX5BszL2SP2kNwvdy5M1e+S2AogME4HFYPibPpxKZC03nRAp/M+Dx2UWDzTXfpttrx72ikCoVtrrAAwgdXBk9iazxxtpskfhs1O86aHXXpAEcA7ivJGDBDcDnyAsA2FMsi1KB/0bVv/EBBBSY9mZ7PAsAAAAASUVORK5CYII=);
 }
+
+a.twitter-share-button,
+a.twitter-mention-button,
+a.twitter-hashtag-button {
+  display: inline-block;
+  padding: 1px 3px 0 19px;
+  border: #ccc solid 1px;
+  border-radius: 3px;
+  background: #f8f8f8 url(//platform.twitter.com/images/bird.png) 2px 3px no-repeat;
+  background-size: 16px 13px, auto auto;
+ 
+  /* Text */
+    font: bold 11px/17px Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #333;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+  white-space: nowrap;
+}
+ 
+/* Color Highlight for keyboard navigation */
+a.twitter-share-button:focus,
+a.twitter-mention-button:focus,
+a.twitter-hashtag-button:focus {
+  outline: none;
+  border-color: #0089cb;
+}
+
+blockquote.twitter-tweet {
+  display: inline-block;
+  padding: 16px;
+  margin: 10px 0;
+  max-width: 468px;
+  border: #ddd 1px solid;
+  border-top-color: #eee;
+  border-bottom-color: #bbb;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font: bold 14px/18px Helvetica, Arial, sans-serif;
+  color: #000;
+}
+ 
+blockquote.twitter-tweet p {
+  font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
+  margin: 0 5px 10px 0;
+}
+ 
+blockquote.twitter-tweet a[href^="https://twitter.com"] {
+  font-weight: normal;
+  color: #666;
+  font-size: 12px;
+}
