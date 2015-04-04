@@ -25,7 +25,8 @@ Meteor.publishComposite("currentUser", function(userId) {
         { 
           limit: 1, 
           fields: { 
-                      profile: 1 
+                      profile: 1 ,
+                      status: 1
                     } 
         });
     }
@@ -66,7 +67,6 @@ Meteor.publishComposite('slapCounts', function(userId) {
     }
   }
 });
-
 
 Meteor.publishComposite('mySlaps', function(userId) {
   return {

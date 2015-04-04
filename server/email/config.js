@@ -4,7 +4,7 @@ Meteor.startup(function() {
     username: 'postmaster@domain.com',
     password: 'password-goes-here'
   });
-
+ 
   Meteor.methods({
     'sendContactEmail': function(name, email, message) {
       this.unblock();

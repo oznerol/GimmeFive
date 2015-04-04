@@ -18,6 +18,22 @@ Template.home.rendered = function() {
     Session.set('myInverval', 0);
     Meteor.clearInterval(myInterval);
     Session.set('failed', false);
+
+    /*
+    var myIP = this.connection.clientAddress;
+    var url = 'http://freegeoip.net/json/' + myIP;
+    $.get(url, function (data) {
+      console.log(data); 
+    });*/
+  
+    var user = Meteor.users.findOne({_id:Meteor.userId()});
+    var myIP = user.status.lastLogin.ipAddr;
+    console.log(myIP);
+    var url = 'http://freegeoip.net/json/' + myIP;
+    $.get(url, function (data) {
+      console.log(data); 
+    });
+
 };
 
 Template.home.destroyed = function() {
